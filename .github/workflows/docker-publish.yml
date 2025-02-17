@@ -1,0 +1,83 @@
+name: Docker
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  REGISTRY: ghcr.io
+
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - sdk: '6.0'
+            sdkFull: '6.0.428'
+            arch: amd64
+            image: alpine3.18
+            runner: ubuntu-24.04
+            build: true
+          - sdk: '6.0'
+            sdkFull: '6.0.428'
+            arch: amd64
+            image: alpine3.21
+            runner: ubuntu-24.04
+            build: true
+          - sdk: '7.0'
+            sdkFull: '7.0.410'
+            arch: amd64
+            image: alpine3.18
+            runner: ubuntu-24.04
+            build: true
+          - sdk: '7.0'
+            sdkFull: '7.0.410'
+            arch: amd64
+            image: alpine3.21
+            runner: ubuntu-24.04
+            build: true
+          - sdk: '8.0'
+            sdkFull: '8.0.406'
+            arch: amd64
+            image: alpine3.18
+            runner: ubuntu-24.04
+            build: true
+          - sdk: '8.0'
+            sdkFull: '8.0.406'
+            arch: amd64
+            image: alpine3.21
+            runner: ubuntu-24.04
+            build: true
+          - sdk: '9.0'
+            sdkFull: '9.0.200'
+            arch: amd64
+            image: alpine3.21
+            runner: ubuntu-24.04
+            build: true
+
+    runs-on: ${{ matrix.runner }}
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        if: matrix.build == true
+        uses: actions/checkout@v3
+
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: matrix.build == true
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image ${{ matrix.sdk }}-${{ matrix.image }}
+        if: matrix.build == true
+        run: |
+          docker build ${{ github.workspace }}/src/sdk/${{ matrix.sdk }}/${{ matrix.image }}/${{ matrix.arch }} --tag ghcr.io/smkanadl/sdk:${{ matrix.sdk }}-${{ matrix.image }} --tag ghcr.io/smkanadl/sdk:${{ matrix.sdkFull }}-${{ matrix.image }}-${{ matrix.arch }}
+          docker push ghcr.io/smkanadl/sdk:${{ matrix.sdk }}-${{ matrix.image }}
+          docker push ghcr.io/smkanadl/sdk:${{ matrix.sdkFull }}-${{ matrix.image }}-${{ matrix.arch }}
