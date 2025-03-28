@@ -13,46 +13,52 @@ jobs:
     strategy:
       matrix:
         include:
-          - sdk: '6.0'
-            sdkFull: '6.0.428'
+          - sdk: '3.1'
+            sdkFull: '3.1.426'
             arch: amd64
-            image: alpine3.18
+            image: ubuntu18.04
             runner: ubuntu-24.04
             build: true
           - sdk: '6.0'
             sdkFull: '6.0.428'
             arch: amd64
-            image: alpine3.21
+            image: alpine-3.18
+            runner: ubuntu-24.04
+            build: true
+          - sdk: '6.0'
+            sdkFull: '6.0.428'
+            arch: amd64
+            image: alpine-3.21
             runner: ubuntu-24.04
             build: true
           - sdk: '7.0'
             sdkFull: '7.0.410'
             arch: amd64
-            image: alpine3.18
+            image: alpine-3.18
             runner: ubuntu-24.04
             build: true
           - sdk: '7.0'
             sdkFull: '7.0.410'
             arch: amd64
-            image: alpine3.21
+            image: alpine-3.21
             runner: ubuntu-24.04
             build: true
           - sdk: '8.0'
             sdkFull: '8.0.407'
             arch: amd64
-            image: alpine3.18
+            image: alpine-3.18
             runner: ubuntu-24.04
             build: true
           - sdk: '8.0'
             sdkFull: '8.0.407'
             arch: amd64
-            image: alpine3.21
+            image: alpine-3.21
             runner: ubuntu-24.04
             build: true
           - sdk: '9.0'
             sdkFull: '9.0.201'
             arch: amd64
-            image: alpine3.21
+            image: alpine-3.21
             runner: ubuntu-24.04
             build: true
 
