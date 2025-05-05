@@ -5,17 +5,17 @@ FROM ghcr.io/smkanadl/ado-base-images:ubuntu-18.04
 LABEL org.opencontainers.image.source="https://github.com/smkanadl/ado-dotnet-sdk-images"
 
 RUN `
-	apt-get update && apt-get install wget libicu60 
+    apt-get update && apt-get install wget libicu60 
 
 RUN `
-	wget https://dot.net/v1/dotnet-install.sh && `
-	sudo chmod +x ./dotnet-install.sh && `
-	./dotnet-install.sh --install-dir /usr/share/dotnet --channel '3.1' --no-path --architecture x64 && `
-	rm dotnet-install.sh
+    wget https://dot.net/v1/dotnet-install.sh && `
+    sudo chmod +x ./dotnet-install.sh && `
+    ./dotnet-install.sh --install-dir /usr/share/dotnet --channel '3.1' --no-path --architecture x64 && `
+    rm dotnet-install.sh
 
 ENV `
-	# Root for dotnet
-	DOTNET_ROOT=/usr/share/dotnet `
+    # Root for dotnet
+    DOTNET_ROOT=/usr/share/dotnet `
     # Enable detection of running in a container
     DOTNET_RUNNING_IN_CONTAINER=true `
     # .NET Runtime version

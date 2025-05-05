@@ -18,45 +18,45 @@ jobs:
             arch: amd64
             image: ubuntu-18.04
             runner: ubuntu-24.04
-            build: true
+            build: false
           - sdk: '6.0'
             sdkFull: '6.0.428'
             arch: amd64
             image: alpine-3.18
             runner: ubuntu-24.04
-            build: true
+            build: false
           - sdk: '6.0'
             sdkFull: '6.0.428'
             arch: amd64
             image: alpine-3.21
             runner: ubuntu-24.04
-            build: true
+            build: false
           - sdk: '7.0'
             sdkFull: '7.0.410'
             arch: amd64
             image: alpine-3.18
             runner: ubuntu-24.04
-            build: true
+            build: false
           - sdk: '7.0'
             sdkFull: '7.0.410'
             arch: amd64
             image: alpine-3.21
             runner: ubuntu-24.04
-            build: true
+            build: false
           - sdk: '8.0'
-            sdkFull: '8.0.407'
+            sdkFull: '8.0.408'
             arch: amd64
             image: alpine-3.18
             runner: ubuntu-24.04
             build: true
           - sdk: '8.0'
-            sdkFull: '8.0.407'
+            sdkFull: '8.0.408'
             arch: amd64
             image: alpine-3.21
             runner: ubuntu-24.04
             build: true
           - sdk: '9.0'
-            sdkFull: '9.0.201'
+            sdkFull: '9.0.203'
             arch: amd64
             image: alpine-3.21
             runner: ubuntu-24.04
