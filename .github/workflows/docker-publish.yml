@@ -44,19 +44,19 @@ jobs:
             runner: ubuntu-24.04
             build: false
           - sdk: '8.0'
-            sdkFull: '8.0.412'
+            sdkFull: '8.0.413'
             arch: amd64
             image: alpine-3.18
             runner: ubuntu-24.04
             build: true
           - sdk: '8.0'
-            sdkFull: '8.0.412'
+            sdkFull: '8.0.413'
             arch: amd64
             image: alpine-3.21
             runner: ubuntu-24.04
             build: true
           - sdk: '9.0'
-            sdkFull: '9.0.302'
+            sdkFull: '9.0.304'
             arch: amd64
             image: alpine-3.21
             runner: ubuntu-24.04
