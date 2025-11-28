@@ -61,6 +61,12 @@ jobs:
             image: alpine-3.21
             runner: ubuntu-24.04
             build: true
+          - sdk: '10.0'
+            sdkFull: '10.0.100'
+            arch: amd64
+            image: alpine-3.22
+            runner: ubuntu-24.04
+            build: true
 
     runs-on: ${{ matrix.runner }}
 
