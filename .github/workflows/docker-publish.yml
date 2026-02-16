@@ -44,31 +44,31 @@ jobs:
             runner: ubuntu-24.04
             build: false
           - sdk: '8.0'
-            sdkFull: '8.0.415'
+            sdkFull: '8.0.418'
             arch: amd64
             image: alpine-3.18
             runner: ubuntu-24.04
             build: true
           - sdk: '8.0'
-            sdkFull: '8.0.415'
+            sdkFull: '8.0.418'
             arch: amd64
             image: alpine-3.21
             runner: ubuntu-24.04
             build: true
           - sdk: '9.0'
-            sdkFull: '9.0.306'
+            sdkFull: '9.0.311'
             arch: amd64
             image: alpine-3.21
             runner: ubuntu-24.04
             build: true
           - sdk: '10.0'
-            sdkFull: '10.0.100'
+            sdkFull: '10.0.103'
             arch: amd64
             image: alpine-3.22
             runner: ubuntu-24.04
             build: true
           - sdk: '10.0'
-            sdkFull: '10.0.100'
+            sdkFull: '10.0.103'
             arch: amd64
             image: debian-13
             runner: ubuntu-24.04
