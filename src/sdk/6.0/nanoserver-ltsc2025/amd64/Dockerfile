@@ -1,5 +1,22 @@
 # escape=`
 
+# Installer image
+# Use the servercore as it as all required to run the installer.
+FROM mcr.microsoft.com/windows/servercore:ltsc2025-amd64 AS installer
+
+RUN powershell -Command `
+        $ErrorActionPreference = 'Stop'; `
+        $ProgressPreference = 'SilentlyContinue'; `
+        Invoke-WebRequest `
+            -UseBasicParsing `
+            -Uri https://dot.net/v1/dotnet-install.ps1 `
+            -OutFile dotnet-install.ps1; `
+        ./dotnet-install.ps1 `
+            -InstallDir '\Program Files\dotnet' `
+            -Architecture x64 `
+            -Channel 6.0.4xx; `
+        Remove-Item -Force dotnet-install.ps1
+
 FROM mcr.microsoft.com/windows/nanoserver:ltsc2025
 LABEL org.opencontainers.image.source="https://github.com/smkanadl/ado-dotnet-sdk-images"
 
@@ -17,20 +34,9 @@ ENV `
     # Skip extraction of XML docs - generally not useful within an image/container - helps performance
     NUGET_XMLDOC_MODE=skip
 
-RUN powershell -Command `
-        $ErrorActionPreference = 'Stop'; `
-        $ProgressPreference = 'SilentlyContinue'; `
-        Invoke-WebRequest `
-            -UseBasicParsing `
-            -Uri https://dot.net/v1/dotnet-install.ps1 `
-            -OutFile dotnet-install.ps1; `
-        ./dotnet-install.ps1 `
-            -InstallDir '\Program Files\dotnet' `
-            -Architecture x64 `
-            -Channel 6.0.4xx; `
-        Remove-Item -Force dotnet-install.ps1
-
 # In order to set system PATH, ContainerAdministrator must be used
 USER ContainerAdministrator
 RUN setx /M PATH "%PATH%;C:\Program Files\dotnet"
 USER ContainerUser
+
+COPY --from=installer ["/Program Files/dotnet", "/Program Files/dotnet"]
