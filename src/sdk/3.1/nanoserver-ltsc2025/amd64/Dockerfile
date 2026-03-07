@@ -14,7 +14,7 @@ RUN powershell -Command `
         ./dotnet-install.ps1 `
             -InstallDir '\Program Files\dotnet' `
             -Architecture x64 `
-            -Channel 3.1.4xx; `
+            -Channel 3.1; `
         Remove-Item -Force dotnet-install.ps1
 
 FROM mcr.microsoft.com/windows/nanoserver:ltsc2025
