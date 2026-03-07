@@ -19,6 +19,12 @@ jobs:
             image: ubuntu-18.04
             runner: ubuntu-24.04
             build: false
+          - sdk: '3.1'
+            sdkFull: '3.1.426'
+            arch: amd64
+            image: nanoserver-ltsc2025
+            runner: windows-2025
+            build: true
           - sdk: '6.0'
             sdkFull: '6.0.428'
             arch: amd64
@@ -31,6 +37,12 @@ jobs:
             image: alpine-3.21
             runner: ubuntu-24.04
             build: false
+          - sdk: '6.0'
+            sdkFull: '3.1.428'
+            arch: amd64
+            image: nanoserver-ltsc2025
+            runner: windows-2025
+            build: true
           - sdk: '7.0'
             sdkFull: '7.0.410'
             arch: amd64
@@ -43,6 +55,12 @@ jobs:
             image: alpine-3.21
             runner: ubuntu-24.04
             build: false
+          - sdk: '7.0'
+            sdkFull: '7.0.408'
+            arch: amd64
+            image: nanoserver-ltsc2025
+            runner: windows-2025
+            build: true
           - sdk: '8.0'
             sdkFull: '8.0.418'
             arch: amd64
