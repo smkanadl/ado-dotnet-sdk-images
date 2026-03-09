@@ -1,6 +1,6 @@
 # escape=`
 
-FROM ghcr.io/smkanadl/ado-base-images:alpine-3.18
+FROM ghcr.io/smkanadl/ado-base-images:alpine-3.18-node-24
 
 LABEL org.opencontainers.image.source="https://github.com/smkanadl/ado-dotnet-sdk-images"
 
