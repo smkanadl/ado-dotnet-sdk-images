@@ -38,7 +38,7 @@ jobs:
             runner: ubuntu-24.04
             build: false
           - sdk: '6.0'
-            sdkFull: '3.1.428'
+            sdkFull: '6.0.428'
             arch: amd64
             image: nanoserver-ltsc2025
             runner: windows-2025
